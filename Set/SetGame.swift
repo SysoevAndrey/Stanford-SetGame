@@ -53,7 +53,10 @@ struct SetGame<CardContent> where CardContent: Equatable {
         if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }),
            cards[chosenIndex].matchingStatus != .matched
         {
-            if selectedCards.count == 2 {
+            if selectedCards.count == 2 &&
+                chosenIndex != selectedCards[0] &&
+                chosenIndex != selectedCards[1]
+            {
                 let first = selectedCards[0]
                 let second = selectedCards[1]
                 
